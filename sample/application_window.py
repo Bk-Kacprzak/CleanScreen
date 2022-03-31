@@ -1,6 +1,6 @@
 from screen import screens, Screen
 
-class ApplicationWindow:
+class ApplicationRect:
 
     def __init__ (self, x, y, w, h) :
         # application window coordinates
@@ -16,6 +16,7 @@ class ApplicationWindow:
             return 0 
         
         top_left_screen = Screen.get_top_left_screen(screens)
+
         for screen in screens: 
             if screen.origin_x <= self.x < screen.origin_x + screen.size[0]: 
                 return screens.index(screen)
@@ -43,7 +44,8 @@ class ApplicationWindow:
             width = screens[screen_index].size[0] * w_ratio
             height = screens[screen_index].size[1] * h_ratio
 
-            return ApplicationWindow(x,y, width, height)
+            return ApplicationRect(x, y, width, height)
+
         
         return count_size
 
@@ -53,4 +55,6 @@ class ApplicationWindow:
 # Main Screen has (0,0) coordinates on the top left point 
 # If another screen is on the left side - x coordinates are negative, otherwise x coords are positive 
 # Before any calculation - get visibleFrame of each screen and calculate TOTAL WIDTH
+
+
 
