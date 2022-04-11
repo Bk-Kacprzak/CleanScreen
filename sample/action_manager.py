@@ -1,0 +1,44 @@
+from window_action import WindowAction
+ORIGIN_POSITION = 0 
+
+# 1/4 split
+SECOND_QUARTER_POSITION = 1/4
+THIRD_QUARTER_POSITION = 2/4
+LAST_QUARTER_POSITION = 3/4
+
+# 1/3 split
+CENTER_ONE_THIRD_POSITION = 1/3
+RIGHT_ONE_THIRD_POSITION = 2/3 
+
+# 1/2 split
+RIGHT_HALF_POSITION = 1/2
+
+# size 
+HALF_SCREEN_SIZE = 1/2 
+ONE_THIRD_SCREEN_SIZE = 1/3 
+QUATER_SCREEN_SIZE = 1/4 
+FULL_SCREEN_SIZE = 1
+
+
+class WindowDimensionsRatio : 
+    def __init__(self, x_ratio, y_ratio, w_ratio, h_ratio) : 
+        self.x_ratio = x_ratio
+        self.y_ratio = y_ratio
+        self.w_ratio = w_ratio
+        self.h_ratio = h_ratio
+
+
+actionManager = {
+# 1/2
+    WindowAction.HALF_LEFT: WindowDimensionsRatio(ORIGIN_POSITION, ORIGIN_POSITION, HALF_SCREEN_SIZE, FULL_SCREEN_SIZE),
+    WindowAction.HALF_RIGHT: WindowDimensionsRatio(RIGHT_HALF_POSITION, ORIGIN_POSITION, HALF_SCREEN_SIZE, FULL_SCREEN_SIZE),
+# 1/3
+    WindowAction.LEFT_THIRD: WindowDimensionsRatio(ORIGIN_POSITION, ORIGIN_POSITION, ONE_THIRD_SCREEN_SIZE, FULL_SCREEN_SIZE),
+    WindowAction.MIDDLE_THIRD: WindowDimensionsRatio(CENTER_ONE_THIRD_POSITION, 0, ONE_THIRD_SCREEN_SIZE, FULL_SCREEN_SIZE),
+    WindowAction.RIGHT_THIRD: WindowDimensionsRatio(RIGHT_ONE_THIRD_POSITION, 0, ONE_THIRD_SCREEN_SIZE, FULL_SCREEN_SIZE),
+# 1/4
+    WindowAction.FIRST_FOURTH: WindowDimensionsRatio(ORIGIN_POSITION, ORIGIN_POSITION, QUATER_SCREEN_SIZE, FULL_SCREEN_SIZE),
+    WindowAction.SECOND_FOURTH: WindowDimensionsRatio(SECOND_QUARTER_POSITION, ORIGIN_POSITION, QUATER_SCREEN_SIZE, FULL_SCREEN_SIZE),
+    WindowAction.THIRD_FOURTH: WindowDimensionsRatio(THIRD_QUARTER_POSITION, ORIGIN_POSITION, QUATER_SCREEN_SIZE, FULL_SCREEN_SIZE),
+    WindowAction.LAST_FOURTH: WindowDimensionsRatio(LAST_QUARTER_POSITION, ORIGIN_POSITION, QUATER_SCREEN_SIZE, FULL_SCREEN_SIZE)
+}   
