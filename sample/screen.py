@@ -24,7 +24,8 @@ class Screen:
     FULL_SCREEN_SIZE = 1
 
     def __init__(self, width, height, screen_id, origin_x, origin_y)  :
-        self.size = (width, height)
+        self.width = width
+        self.height = height
         self.origin_x = origin_x
         self.origin_y = origin_y
         self.screen_id = screen_id
@@ -47,7 +48,7 @@ class Screen:
     @staticmethod 
     def redefine_global_coordinates(screens) : 
         if len(screens) == 1 : 
-            return 
+            return
 
         # far left window
         screens.sort(key = lambda screen: screen.origin_x, reverse = False)
